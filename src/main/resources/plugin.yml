@@ -1,0 +1,7 @@
+name: Frostbar
+version: ${project.version}
+main: me.lory24.frostbar.Frostbar
+authors: [ LoRy24 ]
+permissions:
+  freeze.bypass:
+    description: Bypass the freezing state
