@@ -2,8 +2,8 @@
 Want an even more realistic Minecraft server? Why not make players feel cold when walking on a cold block? Here is the just plugin!
 
 ## What is that?
-This is a Minecraft plugin that adds you the possibility to fell cold when you step near a cold block such like snow and ice. And, if you want to warm up, 
-place a torch near you!
+This is a Minecraft plugin that adds you the possibility to fell cold when you step near a cold block such like snow and ice. And, 
+if you want to warm up, place a torch near you!
 
 ## The config
 This plugin has got some options that you can edit such like the freezing message or the bar title. Here is the config file:
@@ -20,7 +20,8 @@ Settings:
   # Value: Decimal number
   NormalRegen: 0.05
 
-  # The area where the plugin searches any freezing or heat source. If it finds something in this region, it provides
+  # The area where the plugin searches any freezing or heat source. If it finds something in this region, 
+  # it provides
   # to increase or decrease the "FreezingState".
   # Values: Numbers (Decimal or not)
   FreezeArea:
