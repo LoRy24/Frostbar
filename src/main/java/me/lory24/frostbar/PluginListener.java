@@ -14,19 +14,17 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 public class PluginListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        new PlayerJoin().executeEvent(event);
+    public void onPlayerJoin(PlayerJoinEvent event) { 
+        new PlayerJoin().executeEvent(event); 
     }
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        new PlayerQuit().executeEvent(event);
+    public void onPlayerQuit(PlayerQuitEvent event) { 
+        new PlayerQuit().executeEvent(event); 
     }
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerDeath(PlayerDeathEvent event) {
-        new PlayerDied().executeEvent(event);
-    }
+    public void onPlayerDeath(PlayerDeathEvent event) { new PlayerDied().executeEvent(event); }
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerRespawn(PlayerRespawnEvent event) {
