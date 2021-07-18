@@ -1,16 +1,18 @@
 package me.lory24.frostbar;
 
+import lombok.Getter;
 import me.lory24.frostbar.config.ConfigValues;
 import me.lory24.frostbar.freezecore.FrostbarManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("SpellCheckingInspection")
 public final class Frostbar extends JavaPlugin {
 
     private static Frostbar instance;
-    private ConfigValues configValues;
-    private FrostbarManager frostbarManager;
+    @Getter private ConfigValues configValues;
+    @Getter private FrostbarManager frostbarManager;
 
     @Override
     public void onEnable() {
@@ -20,8 +22,7 @@ public final class Frostbar extends JavaPlugin {
         configValues = new ConfigValues(this.getConfig());
         frostbarManager = new FrostbarManager();
         Bukkit.getPluginManager().registerEvents(new PluginListener(), this);
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            getFrostbarManager().addFrostbar(player);
+        for (Player player : Bukkit.getOnlinePlayers()) { getFrostbarManager().addFrostbar(player);
             getFrostbarManager().getPlayersBars().get(player).frostbarBar.initBossBar();
         }
         getLogger().info("Plugin enabled!");
@@ -37,13 +38,7 @@ public final class Frostbar extends JavaPlugin {
         getLogger().info("Plugin disabled!");
     }
 
-    public static Frostbar getInstance() { return instance; }
-
-    public ConfigValues getConfigValues() {
-        return configValues;
-    }
-
-    public FrostbarManager getFrostbarManager() {
-        return frostbarManager;
+    public static Frostbar getInstance() {
+        return instance;
     }
 }

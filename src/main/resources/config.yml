@@ -1,47 +1,73 @@
+#
 # The settings.
 # Colors char: '&'
+#
 Settings:
 
+  #
   # The title of the boss_bar
   # Value: String with colors
+  #
   BossbarTitle: "&bFreezing State"
 
+  #
   # The player regenerate by this value every 2 ticks when he isn't near a freezing source.
   # Value: Decimal number
+  #
   NormalRegen: 0.05
 
+  #
   # The area where the plugin searches any freezing or heat source. If it finds something in this region, it provides
   # to increase or decrease the "FreezingState".
   # Values: Numbers (Decimal or not)
+  #
   FreezeArea:
 
+    #
     # The range of the area
+    #
     AreaRange: 1
 
+  #
   # The values to increase every 2 tick when the player is near a freezing material such like ice or snow
   # Values: Numbers (Decimal or not)
+  #
   FreezingState:
 
+    #
     # When the player is near the snow, his freezing state increase by this value
+    #
     SnowFreeze: 0.00005
 
+    #
     # Else, when the player is near an ice block, his freezing state increase by this value
+    #
     IceFreeze: 0.0005
 
+    #
     # The regen of a torch when it's in the player-freeze area.
+    #
     TorchRegeneration: 0.015
 
+  #
   # If the player has got the value of the FreezeBar to 1, the plugin starts doing that you see below.
+  #
   FrozenState:
 
+    #
     # The ticks before do damage to the player
     # Value: Integer number
+    #
     DamageTicks: 40
 
+    #
     # The damage that the player get every "DamageTicks"
     # Value: Integer number
+    #
     FreezeDamage: 2
 
+    #
     # The message that will be send to the player when his bar reach the 1 value
     # Value: "String" with colors
+    #
     FrozenMessage: "&bYou're Freezing! Place a torch or get out the snow/ice!"

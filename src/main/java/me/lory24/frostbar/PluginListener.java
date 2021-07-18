@@ -1,9 +1,5 @@
 package me.lory24.frostbar;
 
-import me.lory24.frostbar.events.PlayerDied;
-import me.lory24.frostbar.events.PlayerJoin;
-import me.lory24.frostbar.events.PlayerQuit;
-import me.lory24.frostbar.events.PlayerRespawn;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -14,20 +10,28 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 public class PluginListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerJoin(PlayerJoinEvent event) { 
-        new PlayerJoin().executeEvent(event); 
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Frostbar.getInstance().getFrostbarManager().addFrostbar(event.getPlayer());
+        Frostbar.getInstance().getFrostbarManager().getPlayersBars()
+                .get(event.getPlayer()).frostbarBar.initBossBar();
     }
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerQuit(PlayerQuitEvent event) { 
-        new PlayerQuit().executeEvent(event); 
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        if (!Frostbar.getInstance().getFrostbarManager().getPlayersBars().containsKey(event.getPlayer())) return;
+        Frostbar.getInstance().getFrostbarManager().removeFrostbar(event.getPlayer());
     }
 
     @EventHandler(ignoreCancelled = true)
-    public void onPlayerDeath(PlayerDeathEvent event) { new PlayerDied().executeEvent(event); }
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        Frostbar.getInstance().getFrostbarManager().getPlayersBars().get(event.getEntity()).isPlayerRespawned = false;
+        Frostbar.getInstance().getFrostbarManager().getPlayersBars().get(event.getEntity()).frostbarBar
+                .updateValue(0.0D).updateChanges();
+    }
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerRespawn(PlayerRespawnEvent event) {
-        new PlayerRespawn().executeEvent(event);
+        Frostbar.getInstance().getFrostbarManager().getPlayersBars().get(event.getPlayer())
+                .isPlayerRespawned = true;
     }
 }
